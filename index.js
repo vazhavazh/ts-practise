@@ -87,3 +87,35 @@ var arrayUniqFilter = function (array) {
     return resultArray;
 };
 console.log(arrayUniqFilter([1, 2, 2, 3, 4, 4, 5, 5, 5])); // [1, 2, 3, 4, 5]
+var middleAge = function (array) {
+    var sumOfAge = array.reduce(function (acc, el) {
+        return acc + el.age;
+    }, 0);
+    var quantityOfObjs = array.length;
+    var averageValue = sumOfAge / quantityOfObjs;
+    return averageValue;
+};
+var people = [
+    { name: "John", age: 30 },
+    { name: "Jane", age: 25 },
+    { name: "Bob", age: 40 },
+    { name: "Alice", age: 21 },
+];
+console.log(middleAge(people)); // 29
+var theBiggestPrice = function (array) {
+    var result = array.reduce(function (acc, el) {
+        if (el.price > acc) {
+            acc = el.price;
+        }
+        return acc;
+    }, 0);
+    return result;
+};
+var items = [
+    { name: 'Book', price: 15 },
+    { name: 'Laptop', price: 1000 },
+    { name: 'Smartphone', price: 700 },
+    { name: 'TV', price: 1500 },
+    { name: 'Headphones', price: 200 },
+];
+console.log(theBiggestPrice(items)); // 1500

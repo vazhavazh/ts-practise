@@ -116,3 +116,60 @@ const arrayUniqFilter = (array: number[]): number[] => {
 };
 
 console.log(arrayUniqFilter([1, 2, 2, 3, 4, 4, 5, 5, 5])); // [1, 2, 3, 4, 5]
+
+// ?  8) Створи функцію, яка приймає масив об'єктів з властивістю age
+// ? та повертає середній вік цих об'єктів.
+
+interface Person1 {
+name: string;
+age: number;
+}
+
+const middleAge = (array: Person1[]): number => {
+const sumOfAge = array.reduce((acc, el) => {
+return acc + el.age;
+}, 0);
+
+const quantityOfObjs = array.length;
+
+const averageValue = sumOfAge / quantityOfObjs;
+
+return averageValue;
+};
+
+const people: Person1[] = [
+{ name: "John", age: 30 },
+{ name: "Jane", age: 25 },
+{ name: "Bob", age: 40 },
+{ name: "Alice", age: 21 },
+];
+
+console.log(middleAge(people)); // 29
+
+
+// ? 9) Створи функцію, яка приймає масив об'єктів з властивістю price
+// ? та повертає найбільшу ціну з цих об'єктів.
+
+interface ObjWithPrice {
+	name: string;
+	price: number;
+}
+
+const theBiggestPrice = (array: ObjWithPrice[]): number => {
+	const result = array.reduce((acc, el) => {
+		if (el.price > acc) {
+			acc = el.price
+		}
+		return acc
+	}, 0)
+	return result
+};
+
+const items: ObjWithPrice[] = [
+  { name: 'Book', price: 15 },
+  { name: 'Laptop', price: 1000 },
+  { name: 'Smartphone', price: 700 },
+  { name: 'TV', price: 1500 },
+  { name: 'Headphones', price: 200 },
+];
+console.log(theBiggestPrice(items)); // 1500
