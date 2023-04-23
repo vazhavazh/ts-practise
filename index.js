@@ -132,3 +132,16 @@ var people1 = [
     { name: "Alice", age: 21 },
 ];
 console.log(arrayFilterName(people1, "J"));
+// ? 11) Створи функцію, яка приймає масив чисел та повертає новий масив,
+// ? в якому кожен елемент є квадратом відповідного елемента вхідного масиву.
+var squaredArray = function (array) {
+    var result = array.map(function (el) {
+        var square = Math.pow(el, 2);
+        return square;
+    });
+    return result;
+};
+var arrayOfNumbers = [1, 2, 3, 4, 5];
+console.log(squaredArray(arrayOfNumbers));
+// ? 12) Створи функцію, яка приймає рядок та повертає новий рядок,
+// ? в якому кожна літера перетворена на відповідну їй цифру в ASCII таблиці charCodeAt()

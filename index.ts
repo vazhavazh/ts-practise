@@ -173,7 +173,7 @@ const items: ObjWithPrice[] = [
 ];
 console.log(theBiggestPrice(items)); // 1500
 
-// ? Створи функцію, яка приймає масив об'єктів з властивістю name та повертає новий масив,
+// ? 10) Створи функцію, яка приймає масив об'єктів з властивістю name та повертає новий масив,
 //  ? який містить тільки ті об'єкти, в яких ім'я починається з певної літери.
 
 interface objWithName {
@@ -181,7 +181,10 @@ interface objWithName {
 	age: number;
 }
 
-const arrayFilterName = (array: objWithName[], startLetter: string): objWithName[] => {
+const arrayFilterName = (
+	array: objWithName[],
+	startLetter: string
+): objWithName[] => {
 	const result = array.filter((el) => {
 		return el.name.startsWith(startLetter);
 	});
@@ -196,4 +199,24 @@ const people1: objWithName[] = [
 	{ name: "Alice", age: 21 },
 ];
 
-console.log(arrayFilterName(people1, "J"))
+console.log(arrayFilterName(people1, "J"));
+
+// ? 11) Створи функцію, яка приймає масив чисел та повертає новий масив,
+// ? в якому кожен елемент є квадратом відповідного елемента вхідного масиву.
+
+const squaredArray = (array: number[]): number[] => {
+	const result = array.map((el) => {
+		const square = el ** 2;
+		return square;
+	});
+	return result;
+};
+
+const arrayOfNumbers: number[] = [1, 2, 3, 4, 5];
+
+console.log(squaredArray(arrayOfNumbers));
+
+
+// ? 12) Створи функцію, яка приймає рядок та повертає новий рядок,
+// ? в якому кожна літера перетворена на відповідну їй цифру в ASCII таблиці charCodeAt()
+
