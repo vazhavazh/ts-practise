@@ -121,31 +121,30 @@ console.log(arrayUniqFilter([1, 2, 2, 3, 4, 4, 5, 5, 5])); // [1, 2, 3, 4, 5]
 // ? та повертає середній вік цих об'єктів.
 
 interface Person1 {
-name: string;
-age: number;
+	name: string;
+	age: number;
 }
 
 const middleAge = (array: Person1[]): number => {
-const sumOfAge = array.reduce((acc, el) => {
-return acc + el.age;
-}, 0);
+	const sumOfAge = array.reduce((acc, el) => {
+		return acc + el.age;
+	}, 0);
 
-const quantityOfObjs = array.length;
+	const quantityOfObjs = array.length;
 
-const averageValue = sumOfAge / quantityOfObjs;
+	const averageValue = sumOfAge / quantityOfObjs;
 
-return averageValue;
+	return averageValue;
 };
 
 const people: Person1[] = [
-{ name: "John", age: 30 },
-{ name: "Jane", age: 25 },
-{ name: "Bob", age: 40 },
-{ name: "Alice", age: 21 },
+	{ name: "John", age: 30 },
+	{ name: "Jane", age: 25 },
+	{ name: "Bob", age: 40 },
+	{ name: "Alice", age: 21 },
 ];
 
 console.log(middleAge(people)); // 29
-
 
 // ? 9) Створи функцію, яка приймає масив об'єктів з властивістю price
 // ? та повертає найбільшу ціну з цих об'єктів.
@@ -158,18 +157,43 @@ interface ObjWithPrice {
 const theBiggestPrice = (array: ObjWithPrice[]): number => {
 	const result = array.reduce((acc, el) => {
 		if (el.price > acc) {
-			acc = el.price
+			acc = el.price;
 		}
-		return acc
-	}, 0)
-	return result
+		return acc;
+	}, 0);
+	return result;
 };
 
 const items: ObjWithPrice[] = [
-  { name: 'Book', price: 15 },
-  { name: 'Laptop', price: 1000 },
-  { name: 'Smartphone', price: 700 },
-  { name: 'TV', price: 1500 },
-  { name: 'Headphones', price: 200 },
+	{ name: "Book", price: 15 },
+	{ name: "Laptop", price: 1000 },
+	{ name: "Smartphone", price: 700 },
+	{ name: "TV", price: 1500 },
+	{ name: "Headphones", price: 200 },
 ];
 console.log(theBiggestPrice(items)); // 1500
+
+// ? Створи функцію, яка приймає масив об'єктів з властивістю name та повертає новий масив,
+//  ? який містить тільки ті об'єкти, в яких ім'я починається з певної літери.
+
+interface objWithName {
+	name: string;
+	age: number;
+}
+
+const arrayFilterName = (array: objWithName[], startLetter: string): objWithName[] => {
+	const result = array.filter((el) => {
+		return el.name.startsWith(startLetter);
+	});
+
+	return result;
+};
+
+const people1: objWithName[] = [
+	{ name: "John", age: 25 },
+	{ name: "Jane", age: 30 },
+	{ name: "Bob", age: 40 },
+	{ name: "Alice", age: 21 },
+];
+
+console.log(arrayFilterName(people1, "J"))

@@ -112,10 +112,23 @@ var theBiggestPrice = function (array) {
     return result;
 };
 var items = [
-    { name: 'Book', price: 15 },
-    { name: 'Laptop', price: 1000 },
-    { name: 'Smartphone', price: 700 },
-    { name: 'TV', price: 1500 },
-    { name: 'Headphones', price: 200 },
+    { name: "Book", price: 15 },
+    { name: "Laptop", price: 1000 },
+    { name: "Smartphone", price: 700 },
+    { name: "TV", price: 1500 },
+    { name: "Headphones", price: 200 },
 ];
 console.log(theBiggestPrice(items)); // 1500
+var arrayFilterName = function (array, startLetter) {
+    var result = array.filter(function (el) {
+        return el.name.startsWith(startLetter);
+    });
+    return result;
+};
+var people1 = [
+    { name: "John", age: 25 },
+    { name: "Jane", age: 30 },
+    { name: "Bob", age: 40 },
+    { name: "Alice", age: 21 },
+];
+console.log(arrayFilterName(people1, "J"));
