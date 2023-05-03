@@ -32,7 +32,7 @@
 //     const totalValue = array.reduce((acc, el) => {
 //         return acc + el;
 //     });
-    
+
 
 //     const elQuantity = array.length;
 
@@ -43,3 +43,5 @@
 
 // const testArray1 = [10, 10, 10];
 // console.log(averageValue(testArray1))
+
+

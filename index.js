@@ -145,3 +145,10 @@ var arrayOfNumbers = [1, 2, 3, 4, 5];
 console.log(squaredArray(arrayOfNumbers));
 // ? 12) Створи функцію, яка приймає рядок та повертає новий рядок,
 // ? в якому кожна літера перетворена на відповідну їй цифру в ASCII таблиці charCodeAt()
+var stringToCodeTranslator = function (str) {
+    var arr = str.split("");
+    var codesInArr = arr.map(function (el) { return el.charCodeAt(0); });
+    var resultStr = codesInArr.join("");
+    return resultStr;
+};
+console.log(stringToCodeTranslator("Olga"));

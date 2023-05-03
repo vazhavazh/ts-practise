@@ -216,7 +216,14 @@ const arrayOfNumbers: number[] = [1, 2, 3, 4, 5];
 
 console.log(squaredArray(arrayOfNumbers));
 
-
 // ? 12) Створи функцію, яка приймає рядок та повертає новий рядок,
 // ? в якому кожна літера перетворена на відповідну їй цифру в ASCII таблиці charCodeAt()
 
+const stringToCodeTranslator = (str: string): string => {
+	const arr: string[] = str.split("");
+	const codesInArr: number[] = arr.map((el) => el.charCodeAt(0));
+	const resultStr = codesInArr.join("");
+	return resultStr;
+};
+
+console.log(stringToCodeTranslator("Olga"));
