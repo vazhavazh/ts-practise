@@ -151,4 +151,61 @@ var stringToCodeTranslator = function (str) {
     var resultStr = codesInArr.join("");
     return resultStr;
 };
-console.log(stringToCodeTranslator("Olga"));
+console.log(stringToCodeTranslator("Olga")); // "7910810397"
+// ?? 13) Створи функцію, яка приймає масив чисел та повертає новий масив,
+// ?? який містить тільки непарні числа з вхідного масиву.
+var odding = function (arr) {
+    var newArr = arr.filter(function (el) { return el % 2 !== 0; });
+    return newArr;
+};
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(odding(numbers)); // [1, 3, 5, 7, 9]
+// ?? 14) Створи функцію, яка приймає два масиви та повертає новий масив,
+// ?? який містить всі елементи першого масиву, які не зустрічаються в другому масиві.
+var arrChecker = function (arr1, arr2) {
+    var result = arr1.filter(function (el1) { return !arr2.includes(el1); });
+    return result;
+};
+var arr1 = [1, 2, 3, 4, 5];
+var arr2 = [3, 4, 5, 6, 7];
+console.log(arrChecker(arr1, arr2)); // [1, 2]
+// ?? 15) Створи функцію, яка приймає масив об'єктів та повертає новий масив,
+// ?? який містить тільки ті об'єкти з вхідного масиву,
+// ?? які мають властивість age більшу або дорівнює заданому значенню.
+var AGE = 18;
+var ageFilter = function (arr) {
+    var result = arr.filter(function (el) { return el.age >= 18; });
+    return result;
+};
+var arr = [
+    { name: "Alice", age: 20 },
+    { name: "Bob", age: 25 },
+    { name: "Charlie", age: 18 },
+    { name: "Dave", age: 16 },
+];
+console.log(ageFilter(arr));
+// ?? 16) Створи функцію, яка приймає рядок та повертає новий рядок,
+// ?? який містить тільки унікальні символи з вхідного рядка,
+// ?? в тому ж порядку, в якому вони зустрічаються в оригінальному рядку
+var uniqString = function (str) {
+    var arr = str.split("");
+    var filteredArr = arr.filter(function (el, idx, arr) { return arr.indexOf(el) === idx; });
+    var result = filteredArr.join("");
+    return result;
+};
+console.log(uniqString("abbcddeff")); // abcdef
+console.log(uniqString("Hello, world!")); // Helo, wrd!
+//  ?? 17) Напиши функцію,
+// ?? яка приймає масив і повертає останній елемент масиву.
+// ?? Якщо масив порожній, функція повертає null.
+var lastEl = function (arr) {
+    var copy = __spreadArray([], arr, true);
+    if (copy.length === 0) {
+        return null;
+    }
+    var lastEl = copy.pop();
+    return lastEl;
+};
+console.log(lastEl([1, 2, 3, 4, 5])); // 5
+console.log(lastEl([])); // null
+console.log(lastEl(["hello", "world"])); // "world"

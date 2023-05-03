@@ -226,4 +226,84 @@ const stringToCodeTranslator = (str: string): string => {
 	return resultStr;
 };
 
-console.log(stringToCodeTranslator("Olga"));
+console.log(stringToCodeTranslator("Olga")); // "7910810397"
+
+// ?? 13) Створи функцію, яка приймає масив чисел та повертає новий масив,
+// ?? який містить тільки непарні числа з вхідного масиву.
+
+const odding = (arr: number[]): number[] => {
+	const newArr = arr.filter((el) => el % 2 !== 0);
+	return newArr;
+};
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(odding(numbers)); // [1, 3, 5, 7, 9]
+
+// ?? 14) Створи функцію, яка приймає два масиви та повертає новий масив,
+// ?? який містить всі елементи першого масиву, які не зустрічаються в другому масиві.
+
+const arrChecker = (arr1: any[], arr2: any[]): any[] => {
+	const result = arr1.filter((el1) => !arr2.includes(el1));
+	return result;
+};
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [3, 4, 5, 6, 7];
+
+console.log(arrChecker(arr1, arr2)); // [1, 2]
+
+// ?? 15) Створи функцію, яка приймає масив об'єктів та повертає новий масив,
+// ?? який містить тільки ті об'єкти з вхідного масиву,
+// ?? які мають властивість age більшу або дорівнює заданому значенню.
+
+const AGE = 18;
+
+interface TestObj {
+	name: string;
+	age: number;
+}
+const ageFilter = (arr: TestObj[]): TestObj[] => {
+	const result = arr.filter((el) => el.age >= 18);
+	return result;
+};
+
+const arr = [
+	{ name: "Alice", age: 20 },
+	{ name: "Bob", age: 25 },
+	{ name: "Charlie", age: 18 },
+	{ name: "Dave", age: 16 },
+];
+
+console.log(ageFilter(arr));
+
+// ?? 16) Створи функцію, яка приймає рядок та повертає новий рядок,
+// ?? який містить тільки унікальні символи з вхідного рядка,
+// ?? в тому ж порядку, в якому вони зустрічаються в оригінальному рядку
+
+const uniqString = (str: string): string => {
+	const arr = str.split("");
+	const filteredArr = arr.filter((el, idx, arr) => arr.indexOf(el) === idx);
+	const result = filteredArr.join("");
+	return result;
+};
+
+console.log(uniqString("abbcddeff")); // abcdef
+console.log(uniqString("Hello, world!")); // Helo, wrd!
+
+//  ?? 17) Напиши функцію,
+// ?? яка приймає масив і повертає останній елемент масиву.
+// ?? Якщо масив порожній, функція повертає null.
+
+const lastEl = (arr: any[]): any => {
+	const copy = [...arr];
+	if (copy.length === 0) {
+		return null;
+	}
+	const lastEl = copy.pop();
+	return lastEl;
+};
+
+console.log(lastEl([1, 2, 3, 4, 5])); // 5
+console.log(lastEl([])); // null
+console.log(lastEl(["hello", "world"])); // "world"
