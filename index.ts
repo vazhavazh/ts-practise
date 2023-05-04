@@ -307,3 +307,108 @@ const lastEl = (arr: any[]): any => {
 console.log(lastEl([1, 2, 3, 4, 5])); // 5
 console.log(lastEl([])); // null
 console.log(lastEl(["hello", "world"])); // "world"
+
+//  ?? 18) Напиши функцію, яка приймає два масиви і повертає новий масив,
+// ?? в якому елементи - це сума елементів з однаковими індексами у вхідних масивах.
+
+const sumOfSameIndex = (arr1: number[], arr2: number[]): number[] => {
+	let resultArray: number[] = [];
+
+	for (let i = 0; i < Math.min(arr1.length, arr2.length); i++) {
+		const newEl = arr1[i] + arr2[i];
+		resultArray.push(newEl);
+	}
+
+	return resultArray;
+};
+
+console.log(sumOfSameIndex([1, 2, 3], [4, 5, 6])); // [5, 7, 9]
+console.log(sumOfSameIndex([1, 2, 3], [4, 5])); // [5, 7]
+console.log(sumOfSameIndex([1, 2], [4, 5, 6])); // [5, 7]
+console.log(sumOfSameIndex([], [4, 5, 6])); // []
+console.log(sumOfSameIndex([], [])); // []
+
+// ?? 19) Напиши функцію, яка приймає масив чисел і повертає новий масив,
+// ??  в якому елементи - це квадрати чисел з вхідного масиву,
+// ?? відсортовані в порядку зростання.
+
+const squareAndSort = (arr: number[]): number[] => {
+	const squaredCopy = arr.map((el) => el ** 2);
+	const resultArr = squaredCopy.sort((a, b) => a - b);
+	return resultArr;
+};
+
+const arr3 = [3, -1, 0, 2, 4];
+console.log(squareAndSort(arr3)); // [0, 1, 4, 9, 16]
+
+// ?? 20) Напиши функцію, яка приймає рядок як аргумент ,
+// ?? та повертає кількість голосних літер у рядку.
+
+const countVowels = (str: string): number => {
+	const arrOfVowels: string[] = ["a", "e", "i", "o", "u"];
+
+	const arrFromString = str.toLowerCase().split("");
+	const result = arrFromString.reduce((acc, el) => {
+		if (arrOfVowels.includes(el) && el !== "") {
+			acc++;
+		}
+		return acc;
+	}, 0);
+
+	return result;
+};
+
+console.log(countVowels("Hello, world!")); // 3
+console.log(countVowels("How are you?")); // 5
+console.log(countVowels("")); // 0
+
+// ?? 21) Створи функцію, яка приймає масив чисел та повертає новий масив,
+//  ?? який містить кожне число вихідного масиву, помножене на 2.
+
+const multiPlyEl = (arr: number[]): number[] => {
+	const result = arr.map((el) => el * 2);
+	return result;
+};
+
+const arr4: number[] = [1, 2, 3, 4, 5];
+
+console.log(multiPlyEl(arr4)); //
+
+// ?? 22) Створи функцію, яка приймає масив рядків та повертає новий масив,
+// ??  який містить тільки ті рядки, які містять більше 5 символів.
+
+const arrFilter = (arr: string[]): string[] => {
+	const result = arr.filter((el) => el.length > 5);
+	return result
+};
+console.log(arrFilter(["hello", "world", "goodbye", "nice", "to", "meet", "you"])); // ["goodbye", "meet"]
+console.log(arrFilter(["abc", "def", "ghijkl", "mno"])); // ["ghijkl"]
+console.log(arrFilter([])); // []
+
+
+// ?? 23) Створи функцію, яка приймає масив рядків та повертає новий масив,
+// ??  який містить тільки рядки, що починаються з великої літери.
+
+const filterByUpperCase = (arr: string[]): string[] => {
+	const result = arr.filter((el) => el[0] === el[0].toUpperCase());
+	return result;
+};
+
+console.log(filterByUpperCase(['Apple', 'banana', 'Cherry', 'Date'])); // ['Apple', 'Cherry', 'Date']
+
+// ?? 24) Створи функцію, яка приймає масив рядків та повертає новий масив,
+// ?? який містить тільки рядки, які містять підрядок "JS".
+
+const arrFilter4 = (arr: string[]): string[] => {
+	const result = arr.filter((el) => {
+		if (el === '') {
+			return
+		}
+	return el.includes('JS')
+	})
+	return result
+}
+
+console.log(arrFilter4(['JavaScript', 'TypeScript', 'Python', 'JS'])); // ['JS']
+console.log(arrFilter4(['Hello', '', 'JS World'])); // ['JS World']
+console.log(arrFilter4(['JS', 'js', ''])); // ['JS']

@@ -45,3 +45,20 @@
 // console.log(averageValue(testArray1))
 
 
+// const countVowels = (str) => {
+//     const arrOfVowels = ["a", "e", "i", "o", "u"];
+
+//     const arrFromString = str.toLowerCase().split("");
+//     const result = arrFromString.reduce((acc, el) => {
+//         if (arrOfVowels.includes(el) && el !== '') {
+//             acc++;
+//         }
+//         return acc;
+//     }, 0);
+//     return result;
+// };
+
+// console.log(countVowels("Hello, world!")); // 3
+// console.log(countVowels("How are you?")); // 5
+// console.log(countVowels("")); // 0
+
